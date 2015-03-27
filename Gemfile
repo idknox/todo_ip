@@ -16,5 +16,8 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-collection_matchers', '~> 1.0.0'
+  gem 'capybara', '2.3.0'
+  gem 'launchy'
 end
 
