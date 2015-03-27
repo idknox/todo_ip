@@ -7,4 +7,11 @@ feature 'Homepage' do
     expect(page).to have_content 'Welcome to todoIP'
   end
 
+  scenario 'User can visit create page from home' do
+    visit root_path
+    click_on 'Join'
+
+    expect(page).to have_content 'Create Account'
+  end
+
 end

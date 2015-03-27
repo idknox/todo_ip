@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
- root 'dashboard#show'
-
+  root 'dashboard#show'
   get '/home' => 'homepage#show', as: :home
+
+  resources :users
 end
