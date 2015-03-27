@@ -13,5 +13,4 @@ feature 'Homepage' do
 
     expect(page).to have_content 'Create Account'
   end
-
 end
