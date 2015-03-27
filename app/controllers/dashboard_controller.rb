@@ -1,5 +1,3 @@
-class Dashboard_Controller < ApplicationController
-  def show
+class DashboardController < ApplicationController
 
-  end
 end
