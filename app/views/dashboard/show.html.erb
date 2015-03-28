@@ -1,3 +1,4 @@
+<div class="container-fluid">
 
   <%= render partial: 'dashboard/new_task', locals: {task: @dashboard.new_task} %>
   <div class="row">
@@ -104,6 +105,7 @@
       <% end %>
     </div>
   </div>
+</div>
 
 <%= content_for :nav_button do %>
   <%= link_to "Hi, #{current_user.name}!", '#', id: 'nav-button' %></li>
