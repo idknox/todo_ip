@@ -1,3 +1,12 @@
 <h1>Welcome, <%= current_user.name %></h1>
 
 <%= render partial: 'dashboard/new_task', locals: {task: @dashboard.new_task} %>
+
+<ul>
+  <% @dashboard.incomplete_tasks.each do |task| %>
+    <li>
+      <%= task.details %>
+      Due Date: <%= formatted_date(task.due_date) %>
+    </li>
+  <% end %>
+</ul>

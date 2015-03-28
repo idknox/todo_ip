@@ -33,6 +33,6 @@ feature "Dashboard" do
     fill_in "Due date", with: "#{tomorrow}"
     click_on "Create new task"
 
-    expect(page).to have_content("Go to the store", formatted_date(tomorrow))
+    expect(page).to have_content("Go to the store", "Due date: " + formatted_date(tomorrow))
   end
 end
