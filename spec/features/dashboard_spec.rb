@@ -3,14 +3,28 @@ require "capybara/rails"
 
 feature "Dashboard" do
   before :each do
-    user = create_user
-    login(user)
+    @user = create_user
+    login(@user)
   end
 
-  scenario "User can create a new task from dashboard" do
+  scenario "dashboard validates task creation" do
+    click_on "Create new task"
 
-    fill_in 'Task details', with: 'Go to the store'
-    fill_in 'Due date', with: '03/2'
-    click_on 'Create a new task'
+    expect(page).to have_content("Welcome, #{@user.name}", "Details can't be blank")
+
+    fill_in "Details", with: "Go to the store"
+    click_on "Create new task"
+
+    expect(page).to have_content("Welcome, #{@user.name}", "Due Date must be a future date")
+
+    fill_in "Due date", with: "03/02/2015"
+    click_on "Create new task"
+
+    expect(page).to have_content("Welcome, #{@user.name}", "Due Date must be a future date")
+
+    fill_in "Due date", with: "#{tomorrow}"
+    click_on "Create new task"
+
+    expect(page).to have_content("Welcome, #{@user.name}", "Task created")
   end
 end
