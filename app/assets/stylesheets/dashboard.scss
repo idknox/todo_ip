@@ -1,16 +1,29 @@
 .new-task-container {
+  margin-top: 50px;
   background-color: $brown;
+  color: #fff;
+  padding: 20px;
+
+  .errors {
+    position: relative;
+    top: 10px;
+    color: red;
+
+    .error-placeholder {
+      color: $brown;
+    }
+  }
 
   .new-task {
-    padding: 20px;
 
     .label, .field, {
       display: inline;
-
     }
 
     .field {
-      margin: 0 20px 0 0;
+      margin-right: 60px;
+      color: $dark-brown;
+      padding: 2px 5px 2px 5px;
 
       .new-task-details {
         height: 40px;
@@ -19,7 +32,49 @@
     }
     .button {
       font-size: 20px;
-      margin-left: 40px;
+    }
+  }
+}
+
+.tasks {
+  color: #fff;
+  margin-top: 100px;
+  background-color: $brown;
+  text-align: center;
+  height: 350px;
+  overflow-y: auto;
+
+  h3 {
+    text-decoration: underline;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+  }
+
+  .no-tasks {
+    font-size: 2em;
+  }
+
+  table {
+    width: 100%;
+
+    th, td {
+      text-align: center;
+      width: 30%;
+      padding: 3.33%;
+      border-bottom: 1px solid $dark-brown;
+
+      .button {
+        margin-left: 20px;
+        padding: 5px;
+      }
+    }
+
+    .late {
+      font-size: 1.5em;
+
+      .urgent {
+        color: red;
+      }
     }
   }
 }

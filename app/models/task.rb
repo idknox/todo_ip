@@ -16,7 +16,11 @@ class Task < ActiveRecord::Base
   end
 
   def overdue?
-    due_date - Date.today < 0 if due_date
+    due_date - Date.today < 0 && !complete if due_date
+  end
+
+  def completed_early?
+    (due_date - completed_on).to_i > 0
   end
 
   def days_overdue

@@ -10,15 +10,25 @@ class Dashboard
     @task ||= Task.new
   end
 
-  def incomplete_tasks
-    @tasks.reject { |task| task.complete }.sort_by { |task| task.due_date }
+  def tasks(filter)
+    @tasks.select { |task| task_filter(task)[filter] }.sort_by { |task| task.due_date }
   end
 
-  def completed_tasks
-    @tasks.select { |task| task.complete }.sort_by { |task| task.due_date }
-  end
+  private
 
-  def overdue_tasks
-    @tasks.select { |task| !task.complete && task.overdue? }.sort_by { |task| task.due_date }
+  def task_filter(task)
+    {
+      current: !task.complete & !task.overdue?,
+      complete: task.complete,
+      overdue: task.overdue?
+    }
   end
 end
+
+# def completed_tasks
+#   @tasks.select { |task|}.sort_by { |task| task.due_date }
+# end
+#
+# def overdue_tasks
+#   @tasks.select { |task|}.sort_by { |task| task.due_date }
+# end

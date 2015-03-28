@@ -43,8 +43,8 @@ feature "Dashboard" do
     click_on "Create new task"
 
     expect(page).to have_content(
-                      "Overdue Tasks: Current Tasks: Go to the store",
-                      "Due date: " + formatted_date(tomorrow)
+                      "Overdue No OverdueTasks Current Task Due Go to the store " +
+                        formatted_date(tomorrow)
                     )
   end
 
@@ -54,8 +54,8 @@ feature "Dashboard" do
     visit current_path
 
     expect(page).to have_content(
-                      "Overdue Tasks: Current Tasks: Go to the store Due Date: #{formatted_date(first_task.due_date)} " +
-                        "Stay home Due Date: #{formatted_date(second_task.due_date)}"
+                      "Overdue No OverdueTasks Current Task Due Go to the store #{formatted_date(first_task.due_date)} " +
+                        "Stay home #{formatted_date(second_task.due_date)}"
                     )
   end
 
@@ -67,8 +67,8 @@ feature "Dashboard" do
     find("#completed-#{task_to_complete.id}").click_on "Complete"
 
     expect(page).to have_content(
-                      "Overdue Tasks: Current Tasks: #{second_task.details} Due Date: #{formatted_date(second_task.due_date)} " +
-                        "Recently Completed Tasks: #{task_to_complete.details} - completed on #{formatted_date(Date.today)}, 1 days prior to its due date"
+                      "Overdue No OverdueTasks Current Task Due #{second_task.details} #{formatted_date(second_task.due_date)} Completed Task Completed Early?" +
+                        " #{task_to_complete.details} #{formatted_date(Date.today)}"
                     )
   end
 

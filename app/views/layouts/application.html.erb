@@ -10,7 +10,9 @@
 <div class="layer">
   <%= render partial: 'partials/navbar' %>
   <% if flash[:notice] %>
-    <div class="flash"><%= flash[:notice] %></div>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
   <% end %>
   <%= yield %>
 </div>

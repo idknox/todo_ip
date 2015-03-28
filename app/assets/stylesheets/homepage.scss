@@ -4,7 +4,7 @@ h1 {
 }
 
 .title {
-  margin-top: 40px;
+  margin-top: 50px;
   text-align: center;
   padding-bottom: 10px;
   border: 5px solid #fff;
@@ -26,6 +26,11 @@ h1 {
 
   .login-row {
     margin-top: 25px;
+
+    .field_with_errors {
+      width: 40%;
+      display: inline;
+    }
 
     .label {
       font-size: 1.5em;

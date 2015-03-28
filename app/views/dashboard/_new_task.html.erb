@@ -1,11 +1,14 @@
-<div class="row new-task-container">
-  <div class="col-md-10 col-md-offset-2 new-task">
-    <%= form_for [current_user, task] do |f| %>
-      <div class="errors">
-        <% f.object.errors.full_messages.each do |error| %>
-          <%= error %>
-        <% end %>
-      </div>
+<%= form_for [current_user, task] do |f| %>
+  <div class="row new-task-container">
+    <div class="col-md-2 errors">
+      <% if f.object.errors.full_messages.any? %>
+        <%= f.object.errors.full_messages.first %>
+      <% else %>
+        <span class="error-placeholder">
+      Details can't be blank</span>
+      <% end %>
+    </div>
+    <div class="col-md-9 col-md-offset-1 new-task">
       <div class="label">
         <%= f.label :details %>
       </div>
@@ -19,6 +22,6 @@
         <%= f.date_field :due_date %>
       </div>
       <%= f.submit 'Create new task', class: 'btn btn-default button' %>
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>
