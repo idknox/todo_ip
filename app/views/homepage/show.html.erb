@@ -1,3 +1,5 @@
 <h1>Welcome to todoIP</h1>
 
 <%= link_to 'Join', new_user_path %>
+
+<%= render partial: 'homepage/login', locals: {user: @user} %>
