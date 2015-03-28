@@ -6,7 +6,3 @@ def create_user(overrides = {})
                  password_confirmation: 'password'
                }.merge(overrides))
 end
-
-def tomorrow
-  Date.tomorrow
-end

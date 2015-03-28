@@ -27,4 +27,12 @@ feature "Dashboard" do
 
     expect(page).to have_content("Welcome, #{@user.name}", "Task created")
   end
+
+  scenario "dashboard displays task after creation" do
+    fill_in "Details", with: "Go to the store"
+    fill_in "Due date", with: "#{tomorrow}"
+    click_on "Create new task"
+
+    expect(page).to have_content("Go to the store", formatted_date(tomorrow))
+  end
 end

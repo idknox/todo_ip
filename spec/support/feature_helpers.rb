@@ -6,4 +6,12 @@ module FeatureHelpers
     fill_in "Password", with: password
     click_on "Login"
   end
+
+  def tomorrow
+    Date.tomorrow
+  end
+
+  def formatted_date(date)
+    date.strftime('%A %B %e')
+  end
 end
