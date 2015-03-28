@@ -1,14 +1,6 @@
 <%= form_for [current_user, task] do |f| %>
   <div class="row new-task-container">
-    <div class="col-md-2 errors">
-      <% if f.object.errors.full_messages.any? %>
-        <%= f.object.errors.full_messages.first %>
-      <% else %>
-        <span class="error-placeholder">
-      Details can't be blank</span>
-      <% end %>
-    </div>
-    <div class="col-xs-6 col-xs-offset-3 col-md-9 col-md-offset-1 new-task">
+    <div class="col-xs-12 col-xs-offset-3 col-md-10 col-md-offset-1 new-task">
           <div class="label">
             <%= f.label :details %>
           </div>
