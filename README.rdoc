@@ -1,7 +1,7 @@
-Basic ToDo App
+== Basic ToDo App
 
 * Rails 4
 * Testing Suite Rspec and Capybara
 * Bootstrap
 
-== todo-ip.herokuapp.com
+todo-ip.herokuapp.com
