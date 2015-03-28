@@ -14,4 +14,7 @@ class Dashboard
     @tasks.reject { |task| task.complete }.sort_by { |task| task.due_date }
   end
 
+  def completed_tasks
+    @tasks.select { |task| task.complete }.sort_by { |task| task.due_date }
+  end
 end

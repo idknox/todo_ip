@@ -43,7 +43,7 @@ feature "Dashboard" do
     click_on "Create new task"
 
     expect(page).to have_content(
-                      "Go to the store",
+                      "To Do: Go to the store",
                       "Due date: " + formatted_date(tomorrow)
                     )
   end
@@ -54,8 +54,21 @@ feature "Dashboard" do
     visit current_path
 
     expect(page).to have_content(
-                     "Go to the store Due Date: #{formatted_date(first_task.due_date)}" + "
-                     Stay home Due Date: #{formatted_date(second_task.due_date)}"
-                   )
+                      "To Do: Go to the store Due Date: #{formatted_date(first_task.due_date)} Complete " +
+                        "Stay home Due Date: #{formatted_date(second_task.due_date)}"
+                    )
+  end
+
+  scenario "user can complete tasks" do
+    task_to_complete = create_task({user_id: @user.id})
+    second_task = create_task({details: "Stay home", due_date: tomorrow+1, user_id: @user.id})
+    visit current_path
+
+    find("#completed-#{task_to_complete.id}").click_on "Complete"
+
+    expect(page).to have_content(
+                      "To Do: #{second_task.details} Due Date: #{formatted_date(second_task.due_date)} Complete " +
+                        "Recently Completed: #{task_to_complete.details} - completed on #{formatted_date(Date.today)}"
+                    )
   end
 end

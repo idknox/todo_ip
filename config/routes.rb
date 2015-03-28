@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#new', as: :signin
   get '/signout' => 'sessions#destroy', as: :signout
   post '/signin' => 'sessions#create'
+  get '/:task_id/complete' => 'tasks#complete', as: :complete_task
 
   resources :users do
     resources :tasks

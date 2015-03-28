@@ -1,12 +1,22 @@
 <h1>Welcome, <%= current_user.name %></h1>
 
 <%= render partial: 'dashboard/new_task', locals: {task: @dashboard.new_task} %>
-
+<h3>To Do: </h3>
 <ul>
   <% @dashboard.incomplete_tasks.each do |task| %>
-    <li>
+    <li id = "completed-<%= task.id %>">
       <%= task.details %>
       Due Date: <%= formatted_date(task.due_date) %>
+      <%= link_to 'Complete', complete_task_path(task.id) %>
+    </li>
+  <% end %>
+</ul>
+<h3>Recently Completed: </h3>
+<ul>
+  <% @dashboard.completed_tasks.each do |completed_task| %>
+    <li>
+      <%= completed_task.details %> - completed on
+      <%= formatted_date(Date.today) %>
     </li>
   <% end %>
 </ul>
