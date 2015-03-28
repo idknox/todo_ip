@@ -25,17 +25,17 @@ feature "Login" do
     fill_in "Email", with: "test@test.com"
     click_on "Login"
 
-    expect(page).to have_content "Login failed"
+    expect(page).to have_content "Incorrect Username/Password"
 
     create_user
     click_on "Login"
 
-    expect(page).to have_content "Login failed"
+    expect(page).to have_content "Incorrect Username/Password"
 
     fill_in "Password", with: "p"
     click_on "Login"
 
-    expect(page).to have_content "Login failed"
+    expect(page).to have_content "Incorrect Username/Password"
   end
 
   scenario "Login allows valid user to login" do
