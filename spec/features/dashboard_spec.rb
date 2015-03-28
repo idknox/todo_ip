@@ -68,7 +68,7 @@ feature "Dashboard" do
 
     expect(page).to have_content(
                       "Overdue Tasks: Current Tasks: #{second_task.details} Due Date: #{formatted_date(second_task.due_date)} " +
-                        "Recently Completed Tasks: #{task_to_complete.details} - completed on #{formatted_date(Date.today)}, 2 days prior to its due date"
+                        "Recently Completed Tasks: #{task_to_complete.details} - completed on #{formatted_date(Date.today)}, 1 days prior to its due date"
                     )
   end
 

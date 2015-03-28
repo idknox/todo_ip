@@ -14,3 +14,23 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "variables";
+@import "navbar";
+@import "homepage";
+@import "join";
+
+body {
+  background: #333 image-url('splash_background.jpg');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+}
+
+.layer {
+  background-color: rgba(37, 18, 4, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

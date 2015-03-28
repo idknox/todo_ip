@@ -1,20 +1,18 @@
-
 <h1>Welcome, <%= current_user.name %></h1>
-<%= link_to 'Logout', signout_path %>
 <%= render partial: 'dashboard/new_task', locals: {task: @dashboard.new_task} %>
 <h3>Overdue Tasks: </h3>
 <ul>
   <% @dashboard.overdue_tasks.each do |overdue_task| %>
-  <li>
-    <%= overdue_task.details %> is <%= overdue_task.days_overdue %> days overdue!
-  </li>
+    <li>
+      <%= overdue_task.details %> is <%= overdue_task.days_overdue %> days overdue!
+    </li>
   <% end %>
 </ul>
 
 <h3>Current Tasks: </h3>
 <ul>
   <% @dashboard.incomplete_tasks.each do |task| %>
-    <li id = "completed-<%= task.id %>">
+    <li id="completed-<%= task.id %>">
       <%= task.details %>
       Due Date: <%= formatted_date(task.due_date) %>
       <%= button_to 'Complete', complete_task_path(task.id) %>
@@ -30,3 +28,9 @@
     </li>
   <% end %>
 </ul>
+</div>
+
+
+<%= content_for :nav_button do %>
+  <%= link_to 'Logout', signout_path, id: 'nav-button' %>
+<% end %>

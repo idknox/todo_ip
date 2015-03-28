@@ -1,0 +1,22 @@
+.nav-custom {
+  background: $brown;
+  border-radius: 0;
+  border: none;
+
+  .navbar-brand {
+    color: #fff;
+  }
+
+  #nav-button {
+    color: #fff;
+  }
+
+  .navbar-right {
+    border: 1px solid $brown;
+
+    &:hover {
+      background: #663916;
+      border: 1px solid $dark-brown;
+    }
+  }
+}

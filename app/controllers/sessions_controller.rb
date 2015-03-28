@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     else
       @user = User.new(email: params[:user][:email])
       @user.errors[:base] << "Login failed"
-      render partial: 'homepage/login', locals: {user: @user}
+      render 'homepage/show', locals: {user: @user}
     end
   end
 
