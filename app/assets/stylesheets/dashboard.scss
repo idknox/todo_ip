@@ -1,0 +1,25 @@
+.new-task-container {
+  background-color: $brown;
+
+  .new-task {
+    padding: 20px;
+
+    .label, .field, {
+      display: inline;
+
+    }
+
+    .field {
+      margin: 0 20px 0 0;
+
+      .new-task-details {
+        height: 40px;
+        width: 300px;
+      }
+    }
+    .button {
+      font-size: 20px;
+      margin-left: 40px;
+    }
+  }
+}

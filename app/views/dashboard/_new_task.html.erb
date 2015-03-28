@@ -1,12 +1,24 @@
-<%= form_for [current_user, task] do |f| %>
-  <% f.object.errors.full_messages.each do |error| %>
-    <%= error %>
-  <% end %>
-
-  <%= f.label :details %>
-  <%= f.text_field :details %>
-
-  <%= f.label :due_date %>
-  <%= f.date_field :due_date %>
-  <%= f.submit 'Create new task' %>
-<% end %>
+<div class="row new-task-container">
+  <div class="col-md-10 col-md-offset-2 new-task">
+    <%= form_for [current_user, task] do |f| %>
+      <div class="errors">
+        <% f.object.errors.full_messages.each do |error| %>
+          <%= error %>
+        <% end %>
+      </div>
+      <div class="label">
+        <%= f.label :details %>
+      </div>
+      <div class="field">
+        <%= f.text_field :details, class: 'new-task-details' %>
+      </div>
+      <div class="label">
+        <%= f.label :due_date %>
+      </div>
+      <div class="field">
+        <%= f.date_field :due_date %>
+      </div>
+      <%= f.submit 'Create new task', class: 'btn btn-default button' %>
+    <% end %>
+  </div>
+</div>
