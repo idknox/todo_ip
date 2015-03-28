@@ -1,5 +1,5 @@
 <h1>Welcome, <%= current_user.name %></h1>
-
+<%= link_to 'Logout', signout_path %>
 <%= render partial: 'dashboard/new_task', locals: {task: @dashboard.new_task} %>
 <h3>Overdue Tasks: </h3>
 <ul>
