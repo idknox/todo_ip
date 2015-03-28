@@ -55,7 +55,7 @@ feature "Dashboard" do
 
     expect(page).to have_content(
                       "To Do: Go to the store Due Date: #{formatted_date(first_task.due_date)} Complete " +
-                        "Stay home Due Date: #{formatted_date(second_task.due_date)}"
+                        "Stay home Due Date: #{formatted_date(second_task.due_date)}, 2 days prior to its due date"
                     )
   end
 
@@ -68,7 +68,7 @@ feature "Dashboard" do
 
     expect(page).to have_content(
                       "To Do: #{second_task.details} Due Date: #{formatted_date(second_task.due_date)} Complete " +
-                        "Recently Completed: #{task_to_complete.details} - completed on #{formatted_date(Date.today)}"
+                        "Recently Completed: #{task_to_complete.details} - completed on #{formatted_date(Date.today)}, 1 day prior to its due date"
                     )
   end
 end

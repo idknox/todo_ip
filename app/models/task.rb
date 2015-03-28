@@ -10,4 +10,8 @@ class Task < ActiveRecord::Base
       errors.add(:base, "Due Date must be a future date")
     end
   end
+
+  def days_completed_early
+    (due_date - completed_on).to_i if completed_on
+  end
 end

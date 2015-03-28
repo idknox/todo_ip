@@ -7,7 +7,7 @@
     <li id = "completed-<%= task.id %>">
       <%= task.details %>
       Due Date: <%= formatted_date(task.due_date) %>
-      <%= link_to 'Complete', complete_task_path(task.id) %>
+      <%= button_to 'Complete', complete_task_path(task.id) %>
     </li>
   <% end %>
 </ul>
@@ -16,7 +16,7 @@
   <% @dashboard.completed_tasks.each do |completed_task| %>
     <li>
       <%= completed_task.details %> - completed on
-      <%= formatted_date(Date.today) %>
+      <%= formatted_date(Date.today) %>, <%= completed_task.days_completed_early %> days prior to its due date
     </li>
   <% end %>
 </ul>
