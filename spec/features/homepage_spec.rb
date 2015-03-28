@@ -24,10 +24,21 @@ feature "Login" do
   end
 
   scenario "Login page displays errors" do
-    fill_in "Email", with: "test@testco.com"
+    fill_in "Email", with: "test@test.com"
+    click_on "Login"
+
+    expect(page).to have_content "Login failed"
+
+    create_user
+    click_on "Login"
+
+    expect(page).to have_content "Login failed"
+
+    fill_in "Password", with: "p"
     click_on "Login"
 
     expect(page).to have_content "Login failed"
   end
 
+ 
 end
