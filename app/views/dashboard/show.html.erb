@@ -2,7 +2,7 @@
 
   <%= render partial: 'dashboard/new_task', locals: {task: @dashboard.new_task} %>
   <div class="row">
-    <div class="col-md-4 tasks">
+    <div class="col-xs-12 col-md-4 tasks">
       <h3>Overdue</h3>
       <% if @dashboard.tasks(:overdue).any? %>
         <table>
@@ -31,7 +31,7 @@
       <% end %>
     </div>
 
-    <div class="col-md-4 tasks">
+    <div class="col-xs-12 col-md-4 tasks">
       <h3>Current</h3>
       <% if @dashboard.tasks(:current).any? %>
         <table>
@@ -63,7 +63,7 @@
       <% end %>
     </div>
 
-    <div class="col-md-4 tasks">
+    <div class="col-xs-12 col-md-4 tasks">
       <h3>Completed</h3>
       <% if @dashboard.tasks(:complete).any? %>
         <table>

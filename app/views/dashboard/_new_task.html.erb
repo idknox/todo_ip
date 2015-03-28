@@ -8,20 +8,21 @@
       Details can't be blank</span>
       <% end %>
     </div>
-    <div class="col-md-9 col-md-offset-1 new-task">
-      <div class="label">
-        <%= f.label :details %>
+    <div class="col-xs-6 col-xs-offset-3 col-md-9 col-md-offset-1 new-task">
+          <div class="label">
+            <%= f.label :details %>
+          </div>
+          <div class="field">
+            <%= f.text_field :details, class: 'new-task-details' %>
+          </div>
+        <div class="label">
+          <%= f.label :due_date %>
+        </div>
+        <div class="field">
+          <%= f.date_field :due_date %>
+        </div>
+        <%= f.submit 'Create new task', class: 'btn btn-default button' %>
       </div>
-      <div class="field">
-        <%= f.text_field :details, class: 'new-task-details' %>
-      </div>
-      <div class="label">
-        <%= f.label :due_date %>
-      </div>
-      <div class="field">
-        <%= f.date_field :due_date %>
-      </div>
-      <%= f.submit 'Create new task', class: 'btn btn-default button' %>
     </div>
   </div>
 <% end %>
