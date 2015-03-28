@@ -11,6 +11,7 @@ class Dashboard
   end
 
   def incomplete_tasks
-    @tasks.reject { |task| task.complete }
+    @tasks.reject { |task| task.complete }.sort_by { |task| task.due_date }
   end
+
 end

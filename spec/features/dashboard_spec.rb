@@ -10,17 +10,26 @@ feature "Dashboard" do
   scenario "dashboard validates task creation" do
     click_on "Create new task"
 
-    expect(page).to have_content("Welcome, #{@user.name}", "Details can't be blank")
+    expect(page).to have_content(
+                      "Welcome, #{@user.name}",
+                      "Details can't be blank"
+                    )
 
     fill_in "Details", with: "Go to the store"
     click_on "Create new task"
 
-    expect(page).to have_content("Welcome, #{@user.name}", "Due Date must be a future date")
+    expect(page).to have_content(
+                      "Welcome, #{@user.name}",
+                      "Due Date must be a future date"
+                    )
 
     fill_in "Due date", with: "03/02/2015"
     click_on "Create new task"
 
-    expect(page).to have_content("Welcome, #{@user.name}", "Due Date must be a future date")
+    expect(page).to have_content(
+                      "Welcome, #{@user.name}",
+                      "Due Date must be a future date"
+                    )
 
     fill_in "Due date", with: "#{tomorrow}"
     click_on "Create new task"
@@ -33,6 +42,20 @@ feature "Dashboard" do
     fill_in "Due date", with: "#{tomorrow}"
     click_on "Create new task"
 
-    expect(page).to have_content("Go to the store", "Due date: " + formatted_date(tomorrow))
+    expect(page).to have_content(
+                      "Go to the store",
+                      "Due date: " + formatted_date(tomorrow)
+                    )
+  end
+
+  scenario "dashboard displays tasks by soonest due" do
+    second_task = create_task({details: "Stay home", due_date: tomorrow+1, user_id: @user.id})
+    first_task = create_task({user_id: @user.id})
+    visit current_path
+
+    expect(page).to have_content(
+                     "Go to the store Due Date: #{formatted_date(first_task.due_date)}" + "
+                     Stay home Due Date: #{formatted_date(second_task.due_date)}"
+                   )
   end
 end
