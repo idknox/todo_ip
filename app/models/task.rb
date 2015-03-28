@@ -1,7 +1,7 @@
 class Task < ActiveRecord::Base
   belongs_to :user
 
-  validates :details, presence: true
+  validates :details, :due_date, presence: true
 
   validate :due_date_must_be_future
 

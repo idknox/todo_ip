@@ -8,6 +8,15 @@
     font-size: 5em;
   }
 
+  .errors {
+    position: absolute;
+    left: 40%;
+    top: 10%;
+    background: $brown;
+    padding: 20px;
+    color: red;
+  }
+
   .new-task {
     text-align: center;
 
@@ -23,10 +32,10 @@
     .label, .field, {
       display: inline;
       @media (max-width: $phone) {
-       display: block;
+        display: block;
         margin: 0;
       }
-      }
+    }
 
     #task_due_date {
       @media (max-width: $phone) {
@@ -82,8 +91,21 @@
       border-bottom: 1px solid $dark-brown;
 
       .button {
-        margin-left: 20px;
         padding: 5px;
+        display: inline;
+        position: relative;
+        top: 5px;
+      }
+
+      .cancel-button {
+        float: right;
+        margin: 0 -5px 0 10px;
+        color: #98584E;
+        font-size: 1.5em;
+
+        &:hover {
+          color: #986C66;
+        }
       }
     }
 
@@ -94,5 +116,10 @@
         color: red;
       }
     }
+  }
+
+  .reopen {
+    margin-top: 10px;
+    font-size: .75em;
   }
 }

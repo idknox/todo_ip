@@ -14,6 +14,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 @import "variables";
 @import "navbar";
 @import "homepage";
@@ -22,7 +23,7 @@
 
 body {
   background: #333 image-url('splash_background.jpg');
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-size: cover;
 }
