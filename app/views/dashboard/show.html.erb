@@ -1,7 +1,16 @@
 <h1>Welcome, <%= current_user.name %></h1>
 
 <%= render partial: 'dashboard/new_task', locals: {task: @dashboard.new_task} %>
-<h3>To Do: </h3>
+<h3>Overdue Tasks: </h3>
+<ul>
+  <% @dashboard.overdue_tasks.each do |overdue_task| %>
+  <li>
+    <%= overdue_task.details %> is <%= overdue_task.days_overdue %> days overdue!
+  </li>
+  <% end %>
+</ul>
+
+<h3>Current Tasks: </h3>
 <ul>
   <% @dashboard.incomplete_tasks.each do |task| %>
     <li id = "completed-<%= task.id %>">
@@ -11,7 +20,7 @@
     </li>
   <% end %>
 </ul>
-<h3>Recently Completed: </h3>
+<h3>Recently Completed Tasks: </h3>
 <ul>
   <% @dashboard.completed_tasks.each do |completed_task| %>
     <li>

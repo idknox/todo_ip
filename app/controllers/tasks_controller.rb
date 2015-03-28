@@ -17,10 +17,6 @@ class TasksController < ApplicationController
     task.complete = true
     task.completed_on = Date.today
     task.save
-    puts '*' * 80
-    task.completed_on
-    task.due_date
-    puts '*' * 80
     redirect_to root_path
   end
 
