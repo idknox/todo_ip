@@ -20,6 +20,14 @@ class TasksController < ApplicationController
     redirect_to root_path
   end
 
+  def reopen
+    task = Task.find(params[:task_id])
+    task.complete = false
+    task.completed_on = nil
+    task.save
+    redirect_to root_path
+  end
+
   private
 
   def task_params

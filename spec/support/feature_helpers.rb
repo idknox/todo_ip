@@ -12,6 +12,6 @@ module FeatureHelpers
   end
 
   def formatted_date(date)
-    date.strftime('%A %B %e')
+    date.strftime('%B %e')
   end
 end

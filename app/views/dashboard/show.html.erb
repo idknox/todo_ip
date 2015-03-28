@@ -71,6 +71,7 @@
             <th>Task</th>
             <th>Completed</th>
             <th>Early?</th>
+            <th>&nbsp;</th>
           </tr>
           <tbody>
           <% @dashboard.tasks(:complete).each do |completed_task| %>
@@ -88,6 +89,9 @@
                   No
                 <% end %>
               </td>
+              <td>
+                <%= button_to 'ReOpen', reopen_path(completed_task.id), class: 'btn btn-default button' %>
+              </td>
             </tr>
           <% end %>
           </tbody>
@@ -100,8 +104,6 @@
     </div>
   </div>
 </div>
-
-
 
 <%= content_for :nav_button do %>
   <%= link_to "Hi, #{current_user.name}!", '#', id: 'nav-button' %></li>

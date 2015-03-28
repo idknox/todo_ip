@@ -1,6 +1,6 @@
 module TasksHelper
   def formatted_date(date)
-    date.strftime('%A %B %e') if date
+    date.strftime('%B %e') if date
   end
 
   def formatted_days(days)
