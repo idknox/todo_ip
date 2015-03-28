@@ -1,0 +1,12 @@
+<%= form_for [current_user, task] do |f| %>
+  <% f.object.errors.full_messages.each do |error| %>
+    <%= error %>
+  <% end %>
+
+  <%= f.label :details %>
+  <%= f.text_field :details %>
+
+  <%= f.label :due_date %>
+  <%= f.date_field :due_date %>
+  <%= f.submit 'Create new task' %>
+<% end %>

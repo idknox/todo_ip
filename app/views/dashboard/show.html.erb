@@ -1,1 +1,3 @@
 <h1>Welcome, <%= current_user.name %></h1>
+
+<%= render partial: 'dashboard/new_task', locals: {task: @dashboard.new_task} %>
