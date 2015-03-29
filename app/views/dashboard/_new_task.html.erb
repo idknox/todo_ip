@@ -1,20 +1,21 @@
 <%= form_for [current_user, task] do |f| %>
   <div class="row new-task-container">
-    <div class="col-xs-12 col-xs-offset-3 col-md-10 col-md-offset-1 new-task">
-      <div class="label">
-        <%= f.label :details %>
+    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1e col-md-10 col-md-offset-2 new-task">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 new-task-row">
+          <div class="field">
+            <%= f.text_field :details, class: 'new-task-details', placeholder: 'New Task' %>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 new-task-row">
+          <div class="field">
+            <%= f.date_field :due_date %>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+          <%= f.submit 'Create Task', class: 'btn btn-default button' %>
+        </div>
       </div>
-      <div class="field">
-        <%= f.text_field :details, class: 'new-task-details' %>
-      </div>
-      <div class="label">
-        <%= f.label :due_date %>
-      </div>
-      <div class="field">
-        <%= f.date_field :due_date %>
-      </div>
-      <%= f.submit 'Create new task', class: 'btn btn-default button' %>
-
     </div>
   </div>
 <% end %>

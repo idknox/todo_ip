@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 title">
+    <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 title">
       <h1>TodoIP</h1>
     </div>
   </div>
@@ -8,7 +8,3 @@
   <%= render partial: 'homepage/login', locals: {user: @user} %>
 
 </div>
-
-<%= content_for :nav_button do %>
-  <%= link_to 'Join', new_user_path, id: 'nav-button' %>
-<% end %>

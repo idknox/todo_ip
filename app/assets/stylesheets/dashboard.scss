@@ -4,10 +4,6 @@
   color: #fff;
   padding: 20px;
 
-  @media (max-width: $phone) {
-    font-size: 5em;
-  }
-
   .errors {
     position: absolute;
     left: 40%;
@@ -18,99 +14,136 @@
   }
 
   .new-task {
-    text-align: center;
+    text-align: left;
 
-    .label, .field, {
-      display: inline;
-      @media (max-width: $phone) {
-        display: block;
-        margin: 0;
+    div {
+      padding: 0;
+    }
+
+    .new-task-row {
+      @media (max-width: 992px) {
+        margin-bottom: 20px;
       }
     }
 
-    #task_due_date {
-      @media (max-width: $phone) {
-        max-width: 300px;
-      }
-    }
-
-    .field {
-      margin-right: 40px;
+    .field, .field_with_errors {
       color: $dark-brown;
-      padding: 2px 5px 2px 5px;
 
-      .new-task-details {
-        height: 40px;
-        width: 300px;
+      input {
+        width: 80%;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        text-align: center;
+
+        @media (max-width: 992px) {
+          width: 100%;
+        }
       }
+    }
+
+    .new-task-details {
+      height: 40px;
+      padding: 10px;
     }
     .button {
       font-size: 20px;
+      width: 40%;
+      min-width: 28px;
 
       @media (max-width: $phone) {
-        font-size: .6em;
+        width: 100%;
+      }
+
+      @media (max-width: 992px) {
+        width: 100%;
       }
     }
   }
 }
 
-.tasks {
-  color: #fff;
+.tasks-container {
   margin-top: 100px;
+  height: 400px;
   background-color: $brown;
-  text-align: center;
-  height: 350px;
   overflow-y: auto;
-  border-right: 1px solid $dark-brown;
 
-  h3 {
-    font-size: 2.5em;
-    margin-bottom: 30px;
+  @media (max-width: 992px) {
+    height: 100%;
+    background-color: transparent;
   }
 
-  .no-tasks {
-    font-size: 2em;
-  }
+  .tasks {
+    color: #fff;
+    text-align: center;
+    border-right: 1px solid $dark-brown;
+    border-left: 1px solid $dark-brown;
+    height: 100%;
 
-  table {
-    width: 100%;
+    @media (max-width: 992px) {
+      background-color: $brown;
+      overflow-y: auto;
+      height: 350px;
+      margin-bottom: 100px;
+    }
 
-    th, td {
-      text-align: center;
-      width: 30%;
-      padding: 3.33%;
-      border-bottom: 1px solid $dark-brown;
+    h3 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
 
-      .button {
-        padding: 5px;
-        display: inline;
-        position: relative;
-        top: 5px;
+    .no-tasks {
+      font-size: 2em;
+    }
+
+    table {
+      width: 100%;
+
+      th {
+        border-bottom: 1px solid $dark-brown;
+        border-top: 1px solid $dark-brown;
       }
 
-      .cancel-button {
-        float: right;
-        margin: 0 -5px 0 10px;
-        color: #98584E;
+      th, td {
+        text-align: center;
+        width: 30%;
+        padding: 3.33%;
+
+        .button {
+          padding: 5px;
+          display: inline;
+          position: relative;
+          top: 5px;
+        }
+
+        .cancel-button, .complete-button {
+          font-size: 2.5em;
+
+          &:hover {
+            color: #986C66;
+          }
+        }
+        .cancel-button {
+          color: #98584E;
+          margin-left: 15px;
+        }
+
+        .complete-button {
+          color: #BFCC9F;
+        }
+      }
+
+      .late {
         font-size: 1.5em;
 
-        &:hover {
-          color: #986C66;
+        .urgent {
+          color: red;
         }
       }
     }
 
-    .late {
-      font-size: 1.5em;
-
-      .urgent {
-        color: red;
-      }
+    .reopen {
+      font-size: .75em;
     }
   }
 
-  .reopen {
-    margin-top: 10px;
-    font-size: .75em;
-  }
 }
