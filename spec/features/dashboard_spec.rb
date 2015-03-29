@@ -8,42 +8,42 @@ feature "Dashboard" do
   end
 
   scenario "dashboard validates task creation" do
-    click_on "Create new task"
+    click_on "Create Task"
 
     expect(page).to have_content(
                       "Hi, #{@user.name}",
                       "Details can't be blank"
                     )
 
-    fill_in "Details", with: "Go to the store"
-    click_on "Create new task"
+    fill_in "task_details", with: "Go to the store"
+    click_on "Create Task"
 
     expect(page).to have_content(
                       "Hi, #{@user.name}",
                       "Due Date must be a future date"
                     )
 
-    fill_in "Due date", with: "03/02/2015"
-    click_on "Create new task"
+    fill_in "task_due_date", with: "03/02/2015"
+    click_on "Create Task"
 
     expect(page).to have_content(
                       "Hi, #{@user.name}",
                       "Due Date must be a future date"
                     )
 
-    fill_in "Due date", with: "#{tomorrow}"
-    click_on "Create new task"
+    fill_in "task_due_date", with: "#{tomorrow}"
+    click_on "Create Task"
 
     expect(page).to have_content("Hi, #{@user.name}", "Task created")
   end
 
   scenario "dashboard displays task after creation" do
-    fill_in "Details", with: "Go to the store"
-    fill_in "Due date", with: "#{tomorrow}"
-    click_on "Create new task"
+    fill_in "task_details", with: "Go to the store"
+    fill_in "task_due_date", with: "#{tomorrow}"
+    click_on "Create Task"
 
     expect(page).to have_content(
-                      "Overdue No OverdueTasks Current Task Due Go to the store " +
+                      "Current Task Due Finish / Cancel Go to the store " +
                         formatted_date(tomorrow)
                     )
   end
@@ -54,7 +54,7 @@ feature "Dashboard" do
     visit current_path
 
     expect(page).to have_content(
-                      "Overdue No OverdueTasks Current Task Due Go to the store #{formatted_date(first_task.due_date)} " +
+                      "Overdue No OverdueTasks Current Task Due Finish / Cancel Go to the store #{formatted_date(first_task.due_date)} " +
                         "Stay home #{formatted_date(second_task.due_date)}"
                     )
   end
@@ -64,10 +64,10 @@ feature "Dashboard" do
     second_task = create_task({details: "Stay home", due_date: tomorrow+1, user_id: @user.id})
     visit current_path
 
-    find("#completed-#{task_to_complete.id}").click_on "Complete"
+    click_on "complete-#{task_to_complete.id}"
 
     expect(page).to have_content(
-                      "Overdue No OverdueTasks Current Task Due #{second_task.details} #{formatted_date(second_task.due_date)} Completed Task Completed Early?" +
+                      "Current Task Due Finish / Cancel #{second_task.details} #{formatted_date(second_task.due_date)} Completed Task Completed Early? Actions" +
                         " #{task_to_complete.details} #{formatted_date(Date.today)}"
                     )
   end

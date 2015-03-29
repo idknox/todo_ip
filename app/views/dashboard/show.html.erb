@@ -22,7 +22,7 @@
                 <span class="urgent">late</span>
               </td>
               <td>
-                <%= link_to (fa_icon 'check'), complete_task_path(overdue_task.id), method: :post, class: 'complete-button' %>
+                <%= link_to (fa_icon 'check'), complete_task_path(overdue_task.id), method: :post, class: 'complete-button', id: "complete-#{task.id}" %>
                 <%= link_to (fa_icon 'times'), user_task_path(current_user, overdue_task), method: :delete, class: 'cancel-button' %>
               </td>
             </tr>
@@ -47,7 +47,7 @@
           </tr>
           <tbody>
           <% @dashboard.tasks(:current).each do |task| %>
-            <tr id="completed-<%= task.id %>">
+            <tr>
               <td>
                 <%= task.details %>
               </td>
@@ -55,7 +55,7 @@
                 <%= formatted_date(task.due_date) %>
               </td>
               <td>
-                <%= link_to (fa_icon 'check'), complete_task_path(task.id), method: :post, class: 'complete-button' %>
+                <%= link_to (fa_icon 'check'), complete_task_path(task.id), method: :post, class: 'complete-button', id: "complete-#{task.id}" %>
                 <%= link_to (fa_icon 'times'), user_task_path(current_user, task), method: :delete, class: 'cancel-button' %>
               </td>
             </tr>
