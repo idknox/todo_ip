@@ -20,7 +20,8 @@ class Dashboard
     {
       current: !task.complete & !task.overdue?,
       complete: task.complete,
-      overdue: task.overdue?
+      overdue: task.overdue?,
+      soon: task.due_soon?
     }
   end
 end

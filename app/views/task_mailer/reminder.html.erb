@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+</head>
+
+<body>
+
+<h1>Hi <%= @user.name %>, the following tasks are due tomorrow!</h1>
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <%= task.details %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Click here to view your dashboard', 'http://todo-ip.herokuapp.com/' %>
+
+<p>- TaskIP Staff</p>
+</body>
+</html>
