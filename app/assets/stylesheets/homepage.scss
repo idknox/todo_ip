@@ -9,6 +9,10 @@ h1 {
   padding-bottom: 10px;
   border: 5px solid #fff;
   background: $brown;
+
+  @media (max-width: $phone) {
+    font-size: .75em;
+  }
 }
 
 .login {
@@ -34,6 +38,10 @@ h1 {
       font-size: 2em;
       width: 50%;
       padding: 0;
+
+      @media (max-width: 560px) {
+        width: 100%;
+      }
     }
 
     .field {
@@ -42,6 +50,10 @@ h1 {
       bottom: 5px;
       color: $dark-brown;
       width: 50%;
+
+      @media (max-width: 560px) {
+        width: 100%;
+      }
 
       & > input {
         width: 100%;
@@ -52,11 +64,15 @@ h1 {
     }
 
     p {
-      font-size: 2.5em;
+      font-size: 2em;
+
+      @media (max-width: 560px) {
+        font-size: 1.4em;
+      }
     }
     .button {
       width: 100%;
-      font-size: 30px;
+      font-size: 20px;
       color: $dark-brown
     }
   }
