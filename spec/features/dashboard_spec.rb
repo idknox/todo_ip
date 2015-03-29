@@ -11,7 +11,7 @@ feature "Dashboard" do
     click_on "Create Task"
 
     expect(page).to have_content(
-                      "Hi, #{@user.name}",
+                      @user.name,
                       "Details can't be blank"
                     )
 
@@ -19,7 +19,7 @@ feature "Dashboard" do
     click_on "Create Task"
 
     expect(page).to have_content(
-                      "Hi, #{@user.name}",
+                      @user.name,
                       "Due Date must be a future date"
                     )
 
@@ -27,14 +27,14 @@ feature "Dashboard" do
     click_on "Create Task"
 
     expect(page).to have_content(
-                      "Hi, #{@user.name}",
+                      @user.name,
                       "Due Date must be a future date"
                     )
 
     fill_in "task_due_date", with: "#{tomorrow}"
     click_on "Create Task"
 
-    expect(page).to have_content("Hi, #{@user.name}", "Task created")
+    expect(page).to have_content(@user.name, "Task created")
   end
 
   scenario "dashboard displays task after creation" do

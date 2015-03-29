@@ -45,6 +45,6 @@ feature "Login" do
     fill_in "Password", with: "password"
     click_on "Login"
 
-    expect(page).to have_content "Hi, #{user.name}!"
+    expect(page).to have_content user.namega -
   end
 end

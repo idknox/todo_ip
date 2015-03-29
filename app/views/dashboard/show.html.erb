@@ -112,7 +112,7 @@
 </div>
 
 <%= content_for :nav_button do %>
-  <%= link_to "Hi, #{current_user.name}!", '#', id: 'nav-button' %></li>
+  <%= link_to current_user.name, '#', id: 'nav-button' %></li>
   <li>
     <%= link_to 'Logout', signout_path, id: 'nav-button' %>
 <% end %>
