@@ -11,33 +11,29 @@ h1 {
   background: $brown;
 }
 
-.login, .join {
+.login {
   background: $brown;
   padding: 10px;
   height: auto;
   margin-top: 50px;
   color: #fff;
+  border: 5px solid #fff;
 
   .errors {
     text-align: center;
     font-size: 1.5em;
     margin-bottom: 10px;
+    color: red;
   }
 
   .login-row {
     margin-top: 25px;
     padding: 0;
 
-    .field_with_errors {
-      width: 40%;
-      display: inline;
-    }
-
     .label {
-      font-size: 1.5em;
-
-    }
-    .label, .field {
+      font-size: 2em;
+      width: 50%;
+      padding: 0;
     }
 
     .field {
@@ -45,16 +41,32 @@ h1 {
       position: relative;
       bottom: 5px;
       color: $dark-brown;
+      width: 50%;
+
+      & > input {
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        height: 30px;
+      }
     }
 
     .button {
       width: 100%;
-      margin-bottom: 20px;
-      font-size: 20px;
+      font-size: 30px;
+      margin-bottom: 50px;
+      color: $dark-brown
     }
   }
 }
 
-.field_with_errors > input {
-  border: 2px solid red;
+.field_with_errors {
+  display: inline;
+  height: inherit;
+  width: 100%;
+
+  input {
+    width: 100%;
+    border: 5px solid red;
+  }
 }
