@@ -7,7 +7,7 @@ class Task < ActiveRecord::Base
 
   def due_date_must_be_future
     if due_date && due_date < Time.now
-      errors.add(:base, "Due Date must be a future date")
+      errors.add(:due_date, "must be a future date")
     end
   end
 

@@ -8,6 +8,8 @@
           </div>
           <div class="field">
             <%= f.text_field :name %>
+            <span class="error"><%= f.object.errors[:name].first %></span>
+
           </div>
         </div>
         <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 login-row">
@@ -16,6 +18,7 @@
           </div>
           <div class="field">
             <%= f.email_field :email %>
+            <span class="error"><%= f.object.errors[:email].first %></span>
           </div>
         </div>
         <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 login-row">
@@ -24,6 +27,7 @@
           </div>
           <div class="field">
             <%= f.password_field :password %>
+            <span class="error"><%= f.object.errors[:password].first %></span>
           </div>
         </div>
         <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 login-row">

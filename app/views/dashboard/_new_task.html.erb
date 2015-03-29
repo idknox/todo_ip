@@ -5,11 +5,13 @@
         <div class="col-xs-12 col-sm-12 col-md-4 new-task-row">
           <div class="field">
             <%= f.text_field :details, placeholder: 'Task Details' %>
+            <span class="error"><%= f.object.errors[:details].first %></span>
           </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-4 new-task-row">
           <div class="field">
             <%= f.text_field :due_date, placeholder: 'Due Date', onfocus: "(this.type='date')" %>
+            <span class="error"><%= f.object.errors[:due_date].first %></span>
           </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-4">

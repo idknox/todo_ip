@@ -29,6 +29,12 @@
     .field, .field_with_errors {
       color: $dark-brown;
 
+      .error {
+        color: red;
+        display: block;
+        font-size: 1.2em;
+      }
+
       input {
         width: 80%;
         border-radius: 5px;
