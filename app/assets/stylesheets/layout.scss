@@ -3,7 +3,16 @@
 body {
   width: 100%;
   height: 100%;
-  background: $dark-brown;
+
+  @media (min-width: 379px) {
+    background: $brown image-url('splash_background.jpg');
+    background-size: cover;
+  }
+
+  @media (max-width: $phone) {
+    background: $brown image-url('mobile_background.png') no-repeat;
+    background-size: 100% auto;
+  }
 }
 
 .layer {
