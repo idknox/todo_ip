@@ -4,30 +4,13 @@
   border: none;
   margin-bottom: 0;
 
-  @media (max-width: $phone) {
-    font-size: 5em;
-    height: 100px;
-  }
-
   .navbar-brand {
     color: #fff;
-
-    @media (max-width: $phone) {
-      font-size: 1em;
-      position: relative;
-      top: 20px;
-    }
   }
 
   #nav-button {
     color: #fff;
     border: 1px solid $brown;
-
-    @media (max-width: $phone) {
-
-      position: relative;
-      top: 20px;
-    }
 
     &:hover {
       background: #663916;
