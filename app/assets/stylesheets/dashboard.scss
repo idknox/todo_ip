@@ -34,6 +34,8 @@
         border-radius: 5px;
         border: 1px solid #fff;
         text-align: center;
+        height: 40px;
+        padding: 10px;
 
 
         @media (max-width: 992px) {
@@ -46,10 +48,6 @@
       border: 5px solid red;
     }
 
-    .new-task-details {
-      height: 40px;
-      padding: 10px;
-    }
     .button {
       font-size: 20px;
       width: 40%;
@@ -98,6 +96,7 @@
 
     .no-tasks {
       font-size: 2em;
+      margin-top: 25%;
     }
 
     table {
