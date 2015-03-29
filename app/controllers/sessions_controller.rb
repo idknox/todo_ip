@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       @user = User.new(email: params[:user][:email])
-      @user.errors[:base] << "Incorrect Username/Password"
+      @user.errors[:base] << "Invalid Username/Password"
       render 'homepage/show', locals: {user: @user}
     end
   end

@@ -5,7 +5,7 @@ feature "Homepage" do
   scenario "User can visit home and see welcome message" do
     visit root_path
 
-    expect(page).to have_content "todoIP"
+    expect(page).to have_content "taskIP"
   end
 
   scenario "User can visit create page from home" do
@@ -25,17 +25,17 @@ feature "Login" do
     fill_in "Email", with: "test@test.com"
     click_on "Login"
 
-    expect(page).to have_content "Incorrect Username/Password"
+    expect(page).to have_content "Invalid Username/Password"
 
     create_user
     click_on "Login"
 
-    expect(page).to have_content "Incorrect Username/Password"
+    expect(page).to have_content "Invalid Username/Password"
 
     fill_in "Password", with: "p"
     click_on "Login"
 
-    expect(page).to have_content "Incorrect Username/Password"
+    expect(page).to have_content "Invalid Username/Password"
   end
 
   scenario "Login allows valid user to login" do
@@ -45,6 +45,6 @@ feature "Login" do
     fill_in "Password", with: "password"
     click_on "Login"
 
-    expect(page).to have_content user.namega -
+    expect(page).to have_content user.name
   end
 end

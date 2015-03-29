@@ -1,7 +1,7 @@
 == Basic ToDo App
 
-* Rails 4
-* Testing Suite Rspec and Capybara
-* Bootstrap
-
+* Create and track custom tasks.
+* Prioritizes upcoming and past due tasks.
+* Sends email reminders for upcoming tasks.
+`
 todo-ip.herokuapp.com
