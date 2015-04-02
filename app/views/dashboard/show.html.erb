@@ -9,6 +9,7 @@
           <tr>
             <th>Task</th>
             <th>Days Overdue</th>
+            <th>Finish / Cancel</th>
           </tr>
           <tbody>
           <% @dashboard.tasks(:overdue).each do |overdue_task| %>
@@ -19,7 +20,10 @@
               <td class="late">
                 <%= formatted_days(overdue_task.days_overdue) %>
                 <span class="urgent">late</span>
-                <%= link_to (fa_icon 'times-circle'), user_task_path(current_user, overdue_task), method: :delete, class: 'cancel-button' %>
+              </td>
+              <td>
+                <%= link_to (fa_icon 'check'), complete_task_path(overdue_task.id), method: :post, class: 'complete-button' %>
+                <%= link_to (fa_icon 'times'), user_task_path(current_user, overdue_task), method: :delete, class: 'cancel-button' %>
               </td>
             </tr>
           <% end %>
